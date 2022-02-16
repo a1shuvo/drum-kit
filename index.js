@@ -11,6 +11,7 @@ for (i = 0; i < numberOfDrumButtons; i++) {
 
 // Detecting Keyboard Press
 document.addEventListener("keydown", function(event) {
+
     playSound(event.key);
     buttonAnimation(event.key);
 });
@@ -53,15 +54,14 @@ function playSound(key) {
             break;
 
         default:
-            console.log(key);
+            console.log("You have pressed wrong key!");
             break;
     }
 }
 
 function buttonAnimation(currentKey) {
-    var activeButton = document.querySelector("." + currentKey);
-
-    if (activeButton !== null) {
+    if (currentKey == "w" || currentKey == "a" || currentKey == "s" || currentKey == "d" || currentKey == "j" || currentKey == "k" || currentKey == "l") {
+        var activeButton = document.querySelector("." + currentKey);
         activeButton.classList.add("pressed");
         setTimeout(function() {
             activeButton.classList.remove("pressed");
